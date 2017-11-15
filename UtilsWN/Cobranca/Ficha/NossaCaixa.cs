@@ -19,7 +19,7 @@ namespace UtilsWN.Cobranca.Ficha
         /// <param name="nossoNumero">Nosso Número sem formatação</param>
         /// <param name="valorDocumento">Valor do Documento</param>
         /// <param name="vencimento">Data de Vencimento</param>
-        public NossaCaixa(int agencia, int modalidade, int conta, string dvConta, long nossoNumero, decimal valorDocumento, DateTime dataVencimento)
+        public NossaCaixa(int agencia, int modalidade, int conta, string dvConta, long nossoNumero, DateTime? dataVencimento, decimal valorDocumento)
             : base(nossoNumero, dataVencimento, valorDocumento, agencia, "0", conta, dvConta, 151, "1")
         {
             try

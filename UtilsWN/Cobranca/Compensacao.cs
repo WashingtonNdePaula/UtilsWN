@@ -28,7 +28,7 @@ namespace UtilsWN.Cobranca
         protected abstract void formatarAgenciaCodigoBeneficiario();
         protected abstract void formatarCampoLivre();
 
-        public Compensacao(long numeroIdentificacao, DateTime dataVencimento, decimal valorDocumento, int agencia, string dvAgencia, int conta, string dvConta, int banco, string dvBanco)
+        public Compensacao(long numeroIdentificacao, DateTime? dataVencimento, decimal valorDocumento, int agencia, string dvAgencia, int conta, string dvConta, int banco, string dvBanco)
             : base(numeroIdentificacao, dataVencimento, valorDocumento)
         {
             Agencia = agencia;
@@ -73,11 +73,7 @@ namespace UtilsWN.Cobranca
 
         protected override void montarCodigoDeBarras()
         {
-            string codbar;
-            string fator;
-            string mvalor;
-            string digbar;
-
+            int fator = 0;
             if (CampoLivre.Trim().Length != 25)
                 throw new Exception("Campo livre inválido, deve conter 25 dígitos!!!");
             for (int x = 0; x < 25; x++)
@@ -85,11 +81,15 @@ namespace UtilsWN.Cobranca
                 if (! Funcoes.IsNumeric(CampoLivre.Substring(x, 1)))
                     throw new Exception("Campo livre deve conter somente números!!!");
             }
-
-            fator = String.Format("{0:d4}", DataVencimento.Subtract(new DateTime(1997, 10, 7)).Days);
-            mvalor = String.Format("{0:D10}", int.Parse(String.Format("{0:n2}", ValorDocumento).ToString().Replace(",", "").Replace(".", "")));
-            codbar = String.Format("{0:d3}", Banco) + "9" + fator + mvalor + CampoLivre;
-            digbar = (Funcoes.Mod11(codbar, 2, 9) == 0 || Funcoes.Mod11(codbar, 2, 9) > 9) ? "1" : Funcoes.Mod11(codbar, 2, 9).ToString();
+            if (DataVencimento != DateTime.MinValue)
+            {
+                fator = DataVencimento.Subtract(new DateTime(1997, 10, 7)).Days;
+                if (fator > 9999)
+                    fator -= 9000;
+            }
+            string mvalor = String.Format("{0:D10}", int.Parse(String.Format("{0:n2}", ValorDocumento).ToString().Replace(",", "").Replace(".", "")));
+            string codbar = String.Format("{0:d3}", Banco) + "9" + String.Format("{0:d4}", fator) + mvalor + CampoLivre;
+            string digbar = (Funcoes.Mod11(codbar, 2, 9) == 0 || Funcoes.Mod11(codbar, 2, 9) > 9) ? "1" : Funcoes.Mod11(codbar, 2, 9).ToString();
             codbar = codbar.Substring(0, 4) + digbar.ToString() + codbar.Substring(4);
             CodigoDeBarras = codbar;
             CodigoDeBarras2de5 = Funcoes.Cod_Bar(codbar);

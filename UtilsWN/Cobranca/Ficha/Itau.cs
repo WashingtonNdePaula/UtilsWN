@@ -24,7 +24,7 @@ namespace UtilsWN.Cobranca.Ficha
         /// <param name="nossoNumero">Nosso Número sem formatação</param>
         /// <param name="valorDocumento">Valor do Documento</param>
         /// <param name="dataVencimento">Data de Vencimento</param>
-        public Itau(TipoCarteira tipoCarteira, int carteira, int codigoCliente, int agencia, int conta, long nossoNumero, decimal valorDocumento, DateTime dataVencimento)
+        public Itau(TipoCarteira tipoCarteira, int carteira, int codigoCliente, int agencia, int conta, long nossoNumero, DateTime? dataVencimento, decimal valorDocumento)
             : base(nossoNumero, dataVencimento, valorDocumento, agencia, "0", conta, "0", 341, "7")
         {
             try

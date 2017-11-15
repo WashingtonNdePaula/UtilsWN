@@ -21,7 +21,7 @@ namespace UtilsWN.Cobranca.Ficha
         /// <param name="nossoNumero">Nosso Número sem formatação</param>
         /// <param name="valorDocumento">Valor do Documento</param>
         /// <param name="dataVencimento">Data de Vencimento</param>
-        public Real(NumeroBanco numeroBanco, int agencia, int conta, long nossoNumero, decimal valorDocumento, DateTime dataVencimento)
+        public Real(NumeroBanco numeroBanco, int agencia, int conta, long nossoNumero, DateTime? dataVencimento, decimal valorDocumento)
             : base(nossoNumero, dataVencimento, valorDocumento, agencia, "0", conta, "0", int.Parse(String.Format("{0:d4}", int.Parse(numeroBanco.GetHashCode().ToString().Substring(0, 3)))), String.Format("{0:d4}", int.Parse(numeroBanco.GetHashCode().ToString().Substring(3, 1))))
         {
             try

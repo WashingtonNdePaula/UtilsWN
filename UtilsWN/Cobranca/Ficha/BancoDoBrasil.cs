@@ -27,7 +27,7 @@ namespace UtilsWN.Cobranca.Ficha
         /// <param name="valorDocumento">Valor do Documento</param>
         /// <param name="dataVencimento">Data de Vencimento</param>
         /// <remarks></remarks>
-        public BancoDoBrasil(TipoDeCobranca tipoCobranca, int convenio, int agencia, string dvAgencia, int conta, string dvConta, int carteira, int variacaoCarteira, long nossoNumero, DateTime vencimento, decimal valorDocumento)
+        public BancoDoBrasil(TipoDeCobranca tipoCobranca, int convenio, int agencia, string dvAgencia, int conta, string dvConta, int carteira, int variacaoCarteira, long nossoNumero, DateTime? vencimento, decimal valorDocumento)
             : base(nossoNumero, vencimento, valorDocumento, agencia, dvAgencia, conta, dvConta, 1, "9")
         {
             try

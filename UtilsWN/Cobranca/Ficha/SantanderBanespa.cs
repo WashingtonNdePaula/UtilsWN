@@ -38,7 +38,7 @@ namespace UtilsWN.Cobranca.Ficha
         /// <param name="nossoNumero">Nosso Número sem formatação</param>
         /// <param name="valorDocumento">Valor do Documento</param>
         /// <param name="dataVencimento">Data de Vencimento</param>
-        public SantanderBanespa(NumeroBanco numeroBanco, TipoCobranca tipoCobranca, int codigoCedente, int IOF, int agencia, long nossoNumero, decimal valorDocumento, DateTime dataVencimento)
+        public SantanderBanespa(NumeroBanco numeroBanco, TipoCobranca tipoCobranca, int codigoCedente, int IOF, int agencia, long nossoNumero, DateTime? dataVencimento, decimal valorDocumento)
             : base(nossoNumero, dataVencimento, valorDocumento, agencia, "0", 0, "0", int.Parse(String.Format("{0:d4}", int.Parse(numeroBanco.GetHashCode().ToString().Substring(0, 3)))), String.Format("{0:d4}", int.Parse(numeroBanco.GetHashCode().ToString().Substring(3, 1))))
         {
             try
@@ -82,7 +82,7 @@ namespace UtilsWN.Cobranca.Ficha
         /// <param name="nossoNumero">Nosso Número sem formatação</param>
         /// <param name="valorDocumento">Valor do Documento</param>
         /// <param name="dataVencimento">Data de Vencimento</param>
-        public SantanderBanespa(int codigoCedente, long nossoNumero, decimal valorDocumento, DateTime dataVencimento)
+        public SantanderBanespa(int codigoCedente, long nossoNumero, DateTime? dataVencimento, decimal valorDocumento)
             : base(nossoNumero, dataVencimento, valorDocumento, 0, "0", 0, "0", 33, "7")
         {
             try

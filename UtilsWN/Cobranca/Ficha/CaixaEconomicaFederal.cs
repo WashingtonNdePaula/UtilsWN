@@ -60,7 +60,7 @@ namespace UtilsWN.Cobranca.Ficha
         /// <param name="valorDocumento">Valor do Documento</param>
         /// <param name="dataVencimento">Vencimento</param>
         /// <remarks></remarks>
-        public CaixaEconomicaFederal(TipoCarteira tipoCarteira, int agencia, int codigoBeneficiario, string dvCodigoBeneficiario, long nossoNumero, decimal valorDocumento, DateTime dataVencimento)
+        public CaixaEconomicaFederal(TipoCarteira tipoCarteira, int agencia, int codigoBeneficiario, string dvCodigoBeneficiario, long nossoNumero, DateTime? dataVencimento, decimal valorDocumento)
             : base(nossoNumero, dataVencimento, valorDocumento, agencia, "0", codigoBeneficiario, dvCodigoBeneficiario, 104, "0")
         {
             try
@@ -114,7 +114,7 @@ namespace UtilsWN.Cobranca.Ficha
         /// <param name="valorDocumento">Valor do Documento</param>
         /// <param name="dataVencimento">Vencimento</param>
         /// <remarks></remarks>
-        public CaixaEconomicaFederal(TipoCarteiraSICOB tipoCarteiraSICOB, int agencia, int operacao, int codigoBeneficiario, string dvCodigoBeneficiario, long nossoNumero, decimal valorDocumento, DateTime dataVencimento)
+        public CaixaEconomicaFederal(TipoCarteiraSICOB tipoCarteiraSICOB, int agencia, int operacao, int codigoBeneficiario, string dvCodigoBeneficiario, long nossoNumero, DateTime? dataVencimento, decimal valorDocumento)
             : base(nossoNumero, dataVencimento, valorDocumento, 0, "0", codigoBeneficiario, dvCodigoBeneficiario, 104, "0")
         {
             try
@@ -171,7 +171,7 @@ namespace UtilsWN.Cobranca.Ficha
         /// <param name="valorDocumento">Valor do Documento</param>
         /// <param name="dataVencimento">Vencimento</param>
         /// <remarks></remarks>
-        public CaixaEconomicaFederal(int agencia, int codigoEntidade, TipoEntidade tipoEntidade, int CNAE, long nossoNumero, decimal valorDocumento, DateTime dataVencimento)
+        public CaixaEconomicaFederal(int agencia, int codigoEntidade, TipoEntidade tipoEntidade, int CNAE, long nossoNumero, DateTime? dataVencimento, decimal valorDocumento)
             : base(nossoNumero, dataVencimento, valorDocumento, agencia, "0", codigoEntidade, "0", 104, "0")
         {
             try

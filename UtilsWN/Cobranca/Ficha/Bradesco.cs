@@ -14,7 +14,7 @@ namespace UtilsWN.Cobranca.Ficha
         /// <param name="nossoNumero">Nosso Número sem formatação</param>
         /// <param name="valorDocumento">Valor do Documento</param>
         /// <param name="dataVencimento">Data de Vencimento</param>
-        public Bradesco(int carteira, int agencia, string dvAgencia, int conta, string dvConta, long nossoNumero, decimal valorDocumento, DateTime dataVencimento)
+        public Bradesco(int carteira, int agencia, string dvAgencia, int conta, string dvConta, long nossoNumero, DateTime? dataVencimento, decimal valorDocumento)
             : base(nossoNumero, dataVencimento, valorDocumento, agencia, dvAgencia, conta, dvConta, 237, "2")
         {
             try

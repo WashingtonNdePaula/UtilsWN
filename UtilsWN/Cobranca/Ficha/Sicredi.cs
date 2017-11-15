@@ -32,7 +32,7 @@ namespace UtilsWN.Cobranca.Ficha
         /// <param name="valorDocumento">Valor do Documento</param>
         /// <param name="dataVencimento">Data de Vencimento</param>
         /// <remarks></remarks>
-        public Sicredi(TipoCobranca tipoCobranca, TipoCarteira tipoCarteira, int agencia, int posto, int conta, long nossoNumero, DateTime vencimento, decimal valorDocumento)
+        public Sicredi(TipoCobranca tipoCobranca, TipoCarteira tipoCarteira, int agencia, int posto, int conta, long nossoNumero, DateTime? vencimento, decimal valorDocumento)
             : base(nossoNumero, vencimento, valorDocumento, agencia, "0", conta, "0", 748, "X")
         {
             try

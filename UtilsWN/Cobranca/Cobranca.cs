@@ -24,10 +24,10 @@ namespace UtilsWN.Cobranca
         public string CampoLivre { get; protected set; }
         protected abstract void montarLinhaDigitavel();
         protected abstract void montarCodigoDeBarras();
-        public Cobranca(long numeroIdentificacao, DateTime dataVencimento, decimal valorDocumento)
+        public Cobranca(long numeroIdentificacao, DateTime? dataVencimento, decimal valorDocumento)
         {
             NumeroIdentificacao = numeroIdentificacao;
-            DataVencimento = dataVencimento;
+            DataVencimento = dataVencimento.GetValueOrDefault();
             ValorDocumento = valorDocumento;
             InstrucaoPagamento = new List<String>();
         }
